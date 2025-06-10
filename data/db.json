@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "address": "123 Main St, Springfield"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "address": "456 Elm St, Shelbyville"
+  },
+  {
+    "id": 3,
+    "name": "Alice Johnson 2",
+    "address": "789 Oak St, Capital City"
+  },
+  {
+    "id": 4,
+    "name": "Mario Salles",
+    "address": "Praceta Coopermaia 139"
+  }
+]

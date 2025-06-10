@@ -1,0 +1,6 @@
+{
+  "watch": ["bin", "routes", "views", "public"],
+  "ext": "js,json,html",
+  "ignore": ["data/db.json"],
+  "exec": "node ./bin/www"
+}
