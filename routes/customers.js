@@ -63,5 +63,21 @@ router.get('/', async (req, res, next) => {
   res.render('customers', { title: 'Customers', customers });
 });
 
+router.delete('/', async (req, res) => {
+  const id = parseInt(req.body.id);
+
+  if (isNaN(id)) {
+    return res.status(400).json({ error: 'ID inválido' });
+  }
+
+  try {
+    await db.deleteCustomerFromFile(undefined, id);
+    res.sendStatus(200);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+});
+
 
 module.exports = router;

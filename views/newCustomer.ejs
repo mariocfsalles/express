@@ -8,7 +8,9 @@
     <%= title %>
   </title>
 
+  <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.css">
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 
 <body>
@@ -21,12 +23,12 @@
     <form method="POST" action="/customers/new">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
-        <input type="text" id="name" name="name" class="form-control" value="<%= customer.name %>">
+        <input type="text" id="name" name="name" class="form-control" value="<%= customer.name %>" required>
       </div>
 
       <div class="mb-3">
         <label for="address" class="form-label">Address:</label>
-        <input type="text" id="address" name="address" class="form-control" value="<%= customer.address %>">
+        <input type="text" id="address" name="address" class="form-control" value="<%= customer.address %>" required>
       </div>
       <p>
         <input type="hidden" name="id" value="<%= customer.id %>">
@@ -35,7 +37,9 @@
       <button type="submit" class="btn btn-success me-2">Register</button>
       <a href="/customers" class="btn btn-secondary">Cancel</a>
     </form>
+
     <%- include('./partials/modalError.ejs') %>
+
   </div>
 
   <script src="/javascript/bootstrap.bundle.min.js"></script>

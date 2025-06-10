@@ -1,13 +1,18 @@
-<% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
-  <!-- Modal de Erro -->
+<% if (typeof errorMessage !=='undefined' && errorMessage) { %>
+
   <div class="modal fade show" tabindex="-1" style="display: block;" aria-modal="true" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-danger text-white">
-          <h5 class="modal-title">Error</h5>
+          <h5 class="modal-title">
+            <i class="bi bi-exclamation-triangle-fill icon-lg"></i>
+            Something is bad
+          </h5>
         </div>
         <div class="modal-body">
-          <p><%= errorMessage %></p>
+          <p>
+            <%= errorMessage %>
+          </p>
         </div>
         <div class="modal-footer">
           <a href="/customers/new" class="btn btn-secondary">Close</a>
@@ -17,4 +22,5 @@
   </div>
 
   <div class="modal-backdrop fade show"></div>
-<% } %>
+
+  <% } %>

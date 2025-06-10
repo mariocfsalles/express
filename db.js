@@ -31,8 +31,7 @@ async function writeCustomerToFile(filePath = DB_FILE, customerData) {
     const isDuplicate = customers.some(c => c.name === customerData.name);
 
     if (isDuplicate) {
-      // Em vez de apenas logar, lançar erro customizado
-      const error = new Error('This name is already registered.');
+      const error = new Error('This customer is already registered.');
       error.code = 'DUPLICATE_NAME';
       throw error;
     }
@@ -70,22 +69,16 @@ async function updateCustomerInFile(filePath = DB_FILE, updatedCustomer) {
   }
 }
 
-
 async function deleteCustomerFromFile(filePath = DB_FILE, customerId) {
   try {
     const customers = await readCustomersFromFile(filePath);
     const updatedCustomers = customers.filter(customer => customer.id !== customerId);
 
-    if (customers.length === updatedCustomers.length) {
-      console.log('Customer not found. Please check the ID and try again.');
-      return;
-    }
-
-    const updatedData = updatedCustomers.map(customer => JSON.stringify(customer)).join('\n');
-    await fs.writeFile(filePath, updatedData + '\n');
-    console.log('Customer successfully deleted.');
+    await fs.writeFile(filePath, JSON.stringify(updatedCustomers, null, 2), 'utf-8');
+    console.log(`Customer with ID=${customerId} deleted.`);
   } catch (error) {
-    console.log('An error occurred while deleting the customer. Please try again.');
+    console.error('An error occurred while deleting the customer:', error);
+    throw error;
   }
 }
 

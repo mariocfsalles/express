@@ -39,11 +39,11 @@
             <td>
               <%= customer.address %>
             </td>
-            <td>
+            <td class="text-end">
               <a href="/customers/new/<%= customer.id %>" class="text-decoration-none">
                 <i class="bi bi-pencil-square icon-lg text-primary"></i>
               </a>
-              <a href="#" onclick="deleteCustomer(<%= customer.id %>)" class="text-decoration-none ms-2" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+              <a href="#" data-customer-id="<%= customer.id %>" class="text-decoration-none ms-2 trigger-delete">
                 <i class="bi bi-trash icon-lg text-danger"></i>
               </a>
             </td>
@@ -55,6 +55,9 @@
     <p>
       <a class="btn btn-primary" href="/customers/new">New Customer</a>
     </p>
+
+    <%- include('./partials/modalDelete.ejs') %>
+
   </div>
 
   <script src="/javascript/bootstrap.bundle.min.js"></script>
