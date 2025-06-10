@@ -72,7 +72,7 @@ router.delete('/', async (req, res) => {
 
   try {
     await db.deleteCustomerFromFile(undefined, id);
-    res.sendStatus(200);
+    res.sendStatus(204);
   } catch (err) {
     console.error(err);
     res.sendStatus(500);
